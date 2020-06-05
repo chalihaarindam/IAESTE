@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V4</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					FACTSHEET GENERATOR
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">10th Standard Details</span>
+					<input class="input100" type="text" id="school_10" placeholder="Class 10 - School Name">
+					<input class="input100" type="text" id="marks_10" placeholder="Class 10 - Marks">
+      		<input class="input100" type="text" id="year_10" placeholder="Class 10 - Pass year">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">12th Standard Details</span>
+					<input class="input100" type="text" id="school_12" placeholder="Class 12- School">
+					<input class="input100" type="text" id="marks_12" placeholder="Class 12-Marks">
+					<input class="input100" type="text" id="year_12" placeholder="Class 12-Pass year">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">College Details</span>
+					<input class="input100" type="text" id="year_college" placeholder="College passing year">
+					<input class="input100" type="text" id="mark_cgpa" placeholder="College - CGPA">
+					<input class="input100" type="text" id="branch" placeholder="Branch of study">
+          <input class="input100" type="text" id="semesters" placeholder="No. of semesters">
+          <input class="input100" type="text" id="completed_semester" placeholder="Semester Completed">
+					<input class="input100" type="text" id="backlogs" placeholder="Backlogs">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Offer Related Details</span>
+					<input class="input100"  type="text" id="offer" placeholder="Offer Number">
+					<textarea class="input100" name="text" id="languages" placeholder="Languages"></textarea>
+					<textarea class="input100" name="text" id="programming_lan" placeholder="Programming languages"></textarea>
+					<textarea class="input100" name="text" id="software" placeholder="Softwares/IDEs"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div id="items" class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Previous Technical work</span>
+					<button type="button" value="add entry" id="add" class="btn" >
+						<span>
+							+
+						</span>
+					</button>
+					<input class="input100"  type="text" id="heading1" placeholder="Heading">
+					<input class="input100"  type="text" id="period1" placeholder="Period">
+					<textarea class="input100" name="text" id="details1" placeholder="Details"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div id="items1" class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Extra curicular activities</span>
+					<button type="button" value="add entry" id="add1" class="btn" >
+						<span>
+							+
+						</span>
+					</button>
+         	<input class="input100"  type="text" id="topic1" placeholder="Heading">
+					<textarea class="input100" name="text" id="detail1" placeholder="Details"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button onclick="createPDF()" class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+
+</script>
+
+</body>
+
+<script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="js\jspdf.plugin.autotable.min.js "></script>
+</html>
