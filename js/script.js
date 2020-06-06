@@ -226,6 +226,7 @@ function createPDF(){
                 y=28;
                 doc.setFontSize(12);
               }
+                doc.setFontType("normal");
             var paragraph=document.getElementById("details"+j).value;
             var splittedText =doc.splitTextToSize(paragraph, (pdfInMM-lMargin-rMargin+30));
             for(var n=0;n<splittedText.length;n++)
@@ -239,10 +240,68 @@ function createPDF(){
                     y=28;
                   }
                   doc.setFontSize(12);
+                  doc.setFontType("normal");
               }
               y=y+10;
 
           }
+
+          if(y>=190){
+              createBox();
+              doc.addPage();
+              y=28;
+            }
+            doc.setFontType("bold");
+            doc.setFontSize(16);
+            doc.text("Extra Cirucular activities",15,y);
+            doc.line(15, y+1, 80, y+1);
+              doc.line(15, y+1+0.1, 80, y+1+0.1);
+                doc.line(15, y+1-0.1, 80, y+1-0.1);
+
+                var k=1;
+                var y =y+10;
+                for (k=1;k<=bro;k++)
+                {
+
+                    if(y>=240){
+                        createBox();
+                        doc.addPage();
+                        header();
+                        y=28;
+                      }
+
+                      doc.setFontType("bold");
+                      doc.setFontSize(12);
+                      doc.text(k+".",15,y);
+                      doc.text(document.getElementById("topic"+k).value,19,y);
+
+                      y=y+5;
+                      if(y>=260){
+                          createBox();
+                          doc.addPage();
+                          header();
+                          y=28;
+                        }
+
+                        doc.setFontType("normal");
+                    var paragraph=document.getElementById("detail"+k).value;
+                    var splittedText =doc.splitTextToSize(paragraph, (pdfInMM-lMargin-rMargin+30));
+                    for(var n=0;n<splittedText.length;n++)
+                      {
+                        doc.text(lMargin-25,y,splittedText[n]);
+                        y=y+5;
+                        if(y>=260){
+                            createBox();
+                            doc.addPage();
+                            header();
+                            y=28;
+                          }
+                          doc.setFontSize(12);
+                          doc.setFontType("normal");
+                      }
+                      y=y+10;
+
+                  }
 
 //box
         createBox();
